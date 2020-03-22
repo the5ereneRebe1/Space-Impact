@@ -9,6 +9,9 @@ export default class InputHandler{
                 case 40:
                     spaceship.moveDown();
                     break;
+                case 32:
+                    console.log(32);
+                    spaceship.shootLaser();
                     
                 default:
                     break;

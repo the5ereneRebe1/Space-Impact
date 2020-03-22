@@ -1,13 +1,17 @@
+import Laser from "./laser.js";
+
 export default class Spaceship
 {
 
 constructor(gameWidth,gameHeight){
-    this.width = 70;
-    this.height = 20;
+    this.width = 80;
+    this.height = 70;
     this.maxSpeed = 40;
     this.speed = 0;
     this.GAME_HEIGHT = gameHeight;
     this.GAME_WIDTH = gameWidth;
+    this.laserArray = [];
+    this.image = document.getElementById("img_spaceship");
     console.log(this.GAME_HEIGHT+":"+this.GAME_WIDTH);
 
     this.position = {
@@ -22,6 +26,13 @@ moveUp(){
 moveDown(){
     this.speed = this.maxSpeed;
 }
+shootLaser(){
+    let laser = new Laser(this.position.x+this.width,this.position.y+this.height/2);
+    this.laserArray.push(laser);
+}
+getLasers(){
+    return this.laserArray;
+}
 
 update(deltaTime){
     //console.log(deltaTime);
@@ -34,6 +45,7 @@ update(deltaTime){
 }
 
 draw(ctx) {
-    ctx.fillRect(this.position.x,this.position.y,this.width,this.height);
+    //ctx.fillRect(this.position.x,this.position.y,this.width,this.height);
+    ctx.drawImage(this.image,this.position.x,this.position.y,this.width,this.height);
 }
 }

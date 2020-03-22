@@ -20,6 +20,9 @@
     position: relative;
     top: 15px;
   }
+  .ship {
+    display: none;
+  }
   .canvas {
     background-color: rgb(217, 227, 233);
     /* background-image: linear-gradient(130deg, #6C52D9 0%, #1EAAFC 85%, #3EDFD7 100%); */
