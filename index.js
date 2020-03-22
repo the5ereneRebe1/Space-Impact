@@ -1,22 +1,30 @@
+import Spaceship from '/spaceship.js'
+import InputHandler from './input.js'
+
+
+
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+const GAME_WIDTH = canvas.width;
+const GAME_HEIGHT = canvas.height;
 
-let x = canvas.width/2;
-let y = canvas.height-30;
-let ballRadius = 10;
 
-function drawBall(){
-    ctx.beginPath();
-    ctx.arc(x,y,ballRadius,0,Math.PI*2);
-    ctx.fillStyle = "blue";
-    ctx.fill();
-    ctx.closePath();
+
+let spaceship = new Spaceship(GAME_WIDTH,GAME_HEIGHT);
+let lastTime=0;
+new InputHandler(spaceship);
+
+function gameLoop(timeStamp) {
+    let deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
+    ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+    spaceship.draw(ctx);
+    spaceship.update(deltaTime);
+
+
+
+
+    requestAnimationFrame(gameLoop);
 }
-function draw() {
-//Todo : Add draw and update methods for canvas
-//Todo: Add event listeners here
-drawBall();
 
-requestAnimationFrame(draw);
-}
-requestAnimationFrame(draw);
+gameLoop();
