@@ -1,6 +1,6 @@
 export default class InputHandler{
 
-    constructor(spaceship){
+    constructor(spaceship,scribble){
         document.addEventListener('keydown',(event) =>{
             switch (event.keyCode) {
                 case 38:
@@ -13,7 +13,18 @@ export default class InputHandler{
                 default:
                     break;
             }
-
         });
+        let canvas = document.getElementById("canvas");
+        canvas.addEventListener("mousedown", (e) => {
+            scribble.mouseDown(e);
+        });
+        canvas.addEventListener("mouseup", (e) => {
+         scribble.mouseUp(e);   
+        });
+        canvas.addEventListener("mousemove",(e) => {
+         scribble.mouseMove(e);
+        });
+        
+        
     }
 }

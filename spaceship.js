@@ -12,7 +12,7 @@ constructor(gameWidth,gameHeight){
 
     this.position = {
         x:20,
-        y:this.GAME_HEIGHT/2 - this.height/2,
+        y:this.GAME_HEIGHT/2 - this.height/2
     }
 
 }
@@ -28,9 +28,10 @@ update(deltaTime){
     if(!deltaTime) return;
     this.position.y += this.speed / deltaTime;
 
-    if(this.position.y<0) this.position.y = 0;
-    if(this.position.y>this.GAME_HEIGHT-this.height) this.position.y = this.GAME_HEIGHT-this.height;
-    
+    //if(this.position.y<0) this.position.y = 0;
+    if(this.position.y<0) this.moveDown();
+    //if(this.position.y>this.GAME_HEIGHT-this.height) this.position.y = this.GAME_HEIGHT-this.height;
+    if(this.position.y>this.GAME_HEIGHT-this.height) this.moveUp();
 }
 
 draw(ctx) {
