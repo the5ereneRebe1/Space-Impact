@@ -5,7 +5,7 @@ export default class Laser{
             y: y
         };
         this.width = 30;
-        this.speed = 200;
+        this.speed = 500;
 
 
     }

@@ -1,5 +1,5 @@
-import Spaceship from '/spaceship.js'
-import InputHandler from './input.js'
+import Spaceship from './sprites/spaceship.js'
+import InputHandler from './events/input.js'
 
 
 
