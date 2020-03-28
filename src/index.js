@@ -19,13 +19,12 @@ function gameLoop(timeStamp) {
     lastTime = timeStamp;
     let laserObjects = spaceship.getLasers();
     laserObjects = laserObjects.filter((laser) => (laser.position.x <=GAME_WIDTH));    
-    ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT);
-    console.log(laserObjects.length);
 
-    for(let i=0;i<laserObjects.length;i++){
-        laserObjects[i].draw(ctx);
-        laserObjects[i].update(deltaTime);
-    }
+    ctx.clearRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+    laserObjects.forEach(laser => {
+        laser.draw(ctx);
+        laser.update(deltaTime);
+    })
     spaceship.draw(ctx);
     spaceship.update(deltaTime);
 
