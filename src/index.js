@@ -1,10 +1,10 @@
-import Spaceship from './sprites/spaceship.js'
+import Spaceship from './game-objects/spaceship.js'
 import InputHandler from './events/input.js'
 
 
 
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 const GAME_WIDTH = canvas.width;
 const GAME_HEIGHT = canvas.height;
 
